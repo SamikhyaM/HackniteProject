@@ -12,7 +12,6 @@
       --black: #080808;
       --white: #ffffff;
       --gray: #666666;
-      --light-gray: #f5f5f5;
       --border: #dcdcdc;
     }
 
@@ -22,10 +21,11 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
       background: var(--white);
       color: var(--black);
       font-family: Arial, Helvetica, sans-serif;
@@ -36,13 +36,12 @@
       text-decoration: none;
     }
 
+    /* PAGE */
+
     .page {
-      position: relative;
       width: 100%;
-      height: 100vh;
-      padding: 34px 55px;
-      display: flex;
-      flex-direction: column;
+      min-height: 100vh;
+      padding: 34px 55px 90px;
     }
 
     /* NAVIGATION */
@@ -51,6 +50,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 90px;
     }
 
     .uc-mark {
@@ -76,14 +76,11 @@
       letter-spacing: 2.5px;
     }
 
-    /* MAIN */
+    /* HEADER */
 
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 20px 0 55px;
+    .header {
+      max-width: 1000px;
+      margin-bottom: 100px;
     }
 
     .label {
@@ -91,96 +88,130 @@
       font-weight: 700;
       letter-spacing: 2px;
       color: var(--red);
-      margin-bottom: 14px;
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: clamp(55px, 7vw, 95px);
-      line-height: 0.9;
-      letter-spacing: -5px;
+      font-size: clamp(60px, 8vw, 110px);
+      line-height: 0.88;
+      letter-spacing: -6px;
       font-weight: 900;
-      margin-bottom: 18px;
+      margin-bottom: 25px;
     }
 
     .intro {
+      max-width: 650px;
       color: var(--gray);
-      font-size: 14px;
-      margin-bottom: 28px;
+      font-size: 16px;
+      line-height: 1.6;
     }
 
     /* TIPS */
 
-    .tips-list {
-      width: 100%;
-      max-width: 1100px;
-      border-top: 1px solid var(--border);
+    .tips {
+      max-width: 950px;
+      margin-left: 8%;
     }
 
     .tip {
-      display: grid;
-      grid-template-columns: 70px 230px 1fr;
-      align-items: center;
-      gap: 25px;
-      min-height: 65px;
-      border-bottom: 1px solid var(--border);
+      margin-bottom: 100px;
     }
 
     .tip-number {
-      font-size: 11px;
+      color: var(--red);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .tip h2 {
+      font-size: 38px;
+      line-height: 1;
+      letter-spacing: -1.5px;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .tip p {
+      max-width: 780px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #333333;
+      margin-bottom: 22px;
+    }
+
+    .tip-highlight {
+      max-width: 780px;
+      font-size: 12px;
+      line-height: 1.6;
       font-weight: 700;
       color: var(--red);
     }
 
-    .tip-title {
-      font-size: 14px;
-      font-weight: 800;
-    }
+    /* FOOTER */
 
-    .tip-description {
-      font-size: 12px;
-      line-height: 1.45;
-      color: var(--gray);
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+      padding-top: 25px;
+      border-top: 1px solid var(--border);
     }
-
-    /* PAGE NUMBER */
 
     .page-number {
-      position: absolute;
-      bottom: 34px;
-      left: 55px;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 1.5px;
       color: var(--gray);
     }
 
+    .bottom-text {
+      font-size: 10px;
+      color: var(--gray);
+      letter-spacing: 1px;
+    }
+
     @media (max-width: 800px) {
-      body {
-        overflow: auto;
-      }
 
       .page {
-        min-height: 100vh;
-        height: auto;
-        padding: 25px;
+        padding: 25px 25px 70px;
       }
 
-      .tip {
-        grid-template-columns: 45px 1fr;
-        gap: 10px;
-        padding: 15px 0;
+      .top-nav {
+        margin-bottom: 60px;
       }
 
-      .tip-description {
-        grid-column: 2;
+      .header {
+        margin-bottom: 70px;
       }
 
       h1 {
-        font-size: 55px;
+        font-size: 62px;
+        letter-spacing: -4px;
       }
 
-      .page-number {
-        left: 25px;
+      .tips {
+        margin-left: 0;
+      }
+
+      .tip {
+        margin-bottom: 70px;
+      }
+
+      .tip h2 {
+        font-size: 32px;
+      }
+
+      .tip p {
+        font-size: 14px;
+      }
+
+      .bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
       }
     }
   </style>
@@ -213,151 +244,269 @@
     </nav>
 
 
-    <!-- MAIN -->
+    <!-- HEADER -->
 
-    <main class="main">
+    <header class="header">
 
       <div class="label">
         03 — SURVIVAL GUIDE
       </div>
 
       <h1>
-        TIPS + TRICKS
+        TIPS +<br>
+        TRICKS
       </h1>
 
       <p class="intro">
-        Things you figure out after making the mistake once.
+        Nobody really gives you a tutorial for college.
+        These are the things you figure out after making the mistake once.
       </p>
 
+    </header>
 
-      <div class="tips-list">
 
-        <!-- TIP 01 -->
+    <!-- TIPS -->
 
-        <div class="tip">
+    <main class="tips">
 
-          <div class="tip-number">
-            01
-          </div>
 
-          <div class="tip-title">
-            Learn Your Route
-          </div>
+      <!-- TIP 01 -->
 
-          <div class="tip-description">
-            Walk your class route before you actually need it.
-            Five extra minutes of exploring beats being five minutes late.
-          </div>
+      <section class="tip">
 
+        <div class="tip-number">
+          01
         </div>
 
+        <h2>
+          Learn Your Route
+        </h2>
 
-        <!-- TIP 02 -->
+        <p>
+          The first time you walk to a new classroom should not be five
+          minutes before class starts. Campus buildings can look confusing,
+          entrances aren't always where you expect them to be, and your
+          map doesn't always help as much as you think it will. Walk your
+          route beforehand and give yourself extra time during your first
+          few days.
+        </p>
 
-        <div class="tip">
-
-          <div class="tip-number">
-            02
-          </div>
-
-          <div class="tip-title">
-            Save Your Syllabus
-          </div>
-
-          <div class="tip-description">
-            Keep your syllabi somewhere easy to access and put important
-            deadlines into your calendar before they sneak up on you.
-          </div>
-
+        <div class="tip-highlight">
+          FIVE EXTRA MINUTES OF EXPLORING BEATS BEING FIVE MINUTES LATE.
         </div>
 
+      </section>
 
-        <!-- TIP 03 -->
 
-        <div class="tip">
+      <!-- TIP 02 -->
 
-          <div class="tip-number">
-            03
-          </div>
+      <section class="tip">
 
-          <div class="tip-title">
-            Carry The Essentials
-          </div>
-
-          <div class="tip-description">
-            Phone, charger, water, Bearcat Card, headphones, and a snack.
-            Your backpack is basically a mobile survival kit.
-          </div>
-
+        <div class="tip-number">
+          02
         </div>
 
+        <h2>
+          Save Your Syllabus
+        </h2>
 
-        <!-- TIP 04 -->
+        <p>
+          Your syllabus contains a ridiculous amount of information that
+          becomes important later. Keep each one somewhere you can easily
+          find it and pay attention to assignment deadlines, exam dates,
+          grading policies, office hours, and course requirements. Putting
+          important dates into your calendar at the beginning of the
+          semester can save you a lot of stress later.
+        </p>
 
-        <div class="tip">
-
-          <div class="tip-number">
-            04
-          </div>
-
-          <div class="tip-title">
-            Don't Skip Everything
-          </div>
-
-          <div class="tip-description">
-            You don't have to attend every event, but try something new.
-            Clubs and campus events are one of the easiest ways to meet people.
-          </div>
-
+        <div class="tip-highlight">
+          IF IT HAS A DEADLINE, PUT IT IN YOUR CALENDAR.
         </div>
 
+      </section>
 
-        <!-- TIP 05 -->
 
-        <div class="tip">
+      <!-- TIP 03 -->
 
-          <div class="tip-number">
-            05
-          </div>
+      <section class="tip">
 
-          <div class="tip-title">
-            Ask For Help
-          </div>
-
-          <div class="tip-description">
-            Professors, advisors, classmates, RAs, and staff are there to help.
-            Asking early is usually easier than fixing everything later.
-          </div>
-
+        <div class="tip-number">
+          03
         </div>
 
+        <h2>
+          Build Your Backpack
+        </h2>
 
-        <!-- TIP 06 -->
+        <p>
+          Your backpack becomes your portable survival kit. Keep the things
+          you actually need with you: your phone, charger, Bearcat Card,
+          water, headphones, something to write with, and a snack. You don't
+          need to carry your entire room around campus, but having the basics
+          can save you when your schedule suddenly changes.
+        </p>
 
-        <div class="tip">
-
-          <div class="tip-number">
-            06
-          </div>
-
-          <div class="tip-title">
-            Leave Room For Chaos
-          </div>
-
-          <div class="tip-description">
-            Missed shuttle. Random rain. Wrong building. It happens.
-            Adapt, keep moving, and don't let one bad moment ruin your day.
-          </div>
-
+        <div class="tip-highlight">
+          PHONE. CHARGER. BEARCAT CARD. WATER. SNACK. YOU'RE GOOD.
         </div>
 
-      </div>
+      </section>
+
+
+      <!-- TIP 04 -->
+
+      <section class="tip">
+
+        <div class="tip-number">
+          04
+        </div>
+
+        <h2>
+          Try Something New
+        </h2>
+
+        <p>
+          You don't need to attend every campus event or join twenty clubs.
+          But try something that you wouldn't normally do. Go to an
+          involvement fair, attend a club meeting, sit with someone new at
+          lunch, or show up to an event because you saw a random poster for
+          it. A lot of friendships start with two people deciding to go
+          somewhere neither of them really knows anything about.
+        </p>
+
+        <div class="tip-highlight">
+          YOU DON'T HAVE TO KNOW ANYONE BEFORE YOU SHOW UP.
+        </div>
+
+      </section>
+
+
+      <!-- TIP 05 -->
+
+      <section class="tip">
+
+        <div class="tip-number">
+          05
+        </div>
+
+        <h2>
+          Ask For Help
+        </h2>
+
+        <p>
+          Being new means you won't know everything. That's normal. If you
+          don't understand an assignment, can't find a building, don't know
+          where to get something done, or simply have no idea what you're
+          supposed to be doing, ask someone. Professors, advisors,
+          classmates, RAs, student organizations, and university staff
+          exist for exactly these situations.
+        </p>
+
+        <div class="tip-highlight">
+          ASKING EARLY IS USUALLY EASIER THAN FIXING IT LATER.
+        </div>
+
+      </section>
+
+
+      <!-- TIP 06 -->
+
+      <section class="tip">
+
+        <div class="tip-number">
+          06
+        </div>
+
+        <h2>
+          Leave Room For Chaos
+        </h2>
+
+        <p>
+          Something will go wrong. You will probably get lost at least once.
+          You might miss a shuttle, forget something in your room, walk into
+          the wrong building, get caught in the rain, or realize you have
+          absolutely no idea where your next class is. Don't let one bad
+          moment convince you that the entire day is ruined. College is
+          mostly figuring things out as you go.
+        </p>
+
+        <div class="tip-highlight">
+          WRONG BUILDING? OKAY. RESTART. KEEP MOVING.
+        </div>
+
+      </section>
+
+
+      <!-- TIP 07 -->
+
+      <section class="tip">
+
+        <div class="tip-number">
+          07
+        </div>
+
+        <h2>
+          Don't Spend Everything
+        </h2>
+
+        <p>
+          It's surprisingly easy to spend money during your first few weeks.
+          Coffee here, food there, random Target trip, something you suddenly
+          decide your dorm absolutely needs. Give yourself a weekly budget
+          and keep track of what you're spending. Having money left later is
+          much better than realizing you spent your entire budget on snacks
+          and decorations.
+        </p>
+
+        <div class="tip-highlight">
+          YOUR FUTURE SELF WILL APPRECIATE THE MONEY YOU DIDN'T SPEND.
+        </div>
+
+      </section>
+
+
+      <!-- TIP 08 -->
+
+      <section class="tip">
+
+        <div class="tip-number">
+          08
+        </div>
+
+        <h2>
+          Take Care Of Yourself
+        </h2>
+
+        <p>
+          College can make it very easy to prioritize everything except
+          yourself. Eat actual meals, drink water, get enough sleep, take
+          breaks, and give yourself time to reset. You don't need to be
+          productive every second of the day. Sometimes the smartest thing
+          you can do is go back to your room, close your laptop, and rest.
+        </p>
+
+        <div class="tip-highlight">
+          SURVIVING COLLEGE ALSO MEANS KNOWING WHEN TO SLOW DOWN.
+        </div>
+
+      </section>
+
 
     </main>
 
 
-    <div class="page-number">
-      03 / 04
+    <!-- FOOTER -->
+
+    <div class="bottom">
+
+      <div class="page-number">
+        03 / 04
+      </div>
+
+      <div class="bottom-text">
+        BEARCAT: NO TUTORIAL.
+      </div>
+
     </div>
 
   </div>

@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bearcat: No Tutorial</title>
+
+  <title>UC Resources — Bearcat: No Tutorial</title>
 
   <style>
     :root {
@@ -16,19 +17,18 @@
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
-    html,
     body {
       width: 100%;
-      height: 100%;
+      height: 100vh;
       overflow: hidden;
-      font-family: Arial, Helvetica, sans-serif;
       background: var(--white);
       color: var(--black);
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     a {
@@ -36,328 +36,163 @@
       text-decoration: none;
     }
 
-    .team-page {
-      height: 100vh;
-      width: 100vw;
+    .page {
       position: relative;
-      overflow: hidden;
+      width: 100%;
+      height: 100vh;
+      padding: 34px 55px;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* =========================
-       TOP NAV
-    ========================= */
+    /* NAVIGATION */
 
     .top-nav {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 90px;
-      padding: 28px 42px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      z-index: 10;
-    }
-
-    .uc-home {
-      display: flex;
       align-items: center;
     }
 
     .uc-mark {
-      font-size: 30px;
+      font-size: 24px;
       font-weight: 900;
-      letter-spacing: -2px;
-      color: var(--red);
+      letter-spacing: -1px;
     }
 
-    .next-button {
+    .nav-right {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-button {
       font-size: 12px;
       font-weight: 700;
       letter-spacing: 1.5px;
-      border-bottom: 1px solid var(--black);
-      padding-bottom: 5px;
+      color: var(--red);
       transition: 0.2s ease;
     }
 
-    .next-button:hover {
-      color: var(--red);
-      border-color: var(--red);
+    .nav-button:hover {
+      letter-spacing: 2.5px;
     }
 
-    /* =========================
-       MAIN CONTENT
-    ========================= */
+    /* MAIN */
 
-    .team-content {
-      position: absolute;
-      top: 90px;
-      left: 0;
-      right: 0;
-      bottom: 55px;
-
-      padding: 25px 42px 35px;
-
-      display: grid;
-      grid-template-columns: 42% 58%;
-      gap: 50px;
-      align-items: center;
-    }
-
-    /* =========================
-       PROJECT — LEFT
-    ========================= */
-
-    .project-section {
-      height: 100%;
+    .main {
+      flex: 1;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding-right: 30px;
+      padding: 25px 0 55px;
     }
 
-    .section-label {
+    .label {
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 2px;
       color: var(--red);
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(55px, 7vw, 95px);
+      line-height: 0.9;
+      letter-spacing: -5px;
+      font-weight: 900;
       margin-bottom: 18px;
     }
 
-    .project-title {
-      font-size: clamp(52px, 6vw, 92px);
-      line-height: 0.86;
-      letter-spacing: -5px;
-      font-weight: 900;
-      max-width: 560px;
+    .intro {
+      color: var(--gray);
+      font-size: 14px;
       margin-bottom: 28px;
     }
 
-    .project-title span {
-      color: var(--red);
+    /* RESOURCE LIST */
+
+    .resource-list {
+      width: 100%;
+      max-width: 1100px;
+      border-top: 1px solid var(--border);
     }
 
-    .project-copy {
-      max-width: 520px;
-      font-size: 15px;
-      line-height: 1.6;
+    .resource {
+      display: grid;
+      grid-template-columns: 230px 1fr 100px;
+      align-items: center;
+      gap: 30px;
+      min-height: 65px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .resource-name {
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .resource-name span {
+      color: var(--red);
+      margin-right: 8px;
+      font-size: 11px;
+    }
+
+    .resource-description {
+      font-size: 12px;
+      line-height: 1.4;
       color: var(--gray);
     }
 
-    .project-copy p + p {
-      margin-top: 12px;
-    }
-
-    .project-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: 28px;
-    }
-
-    .project-tag {
-      border: 1px solid var(--border);
-      background: var(--light-gray);
-      padding: 8px 11px;
-      font-size: 9px;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-    }
-
-    .project-line {
-      margin-top: 24px;
-      padding-left: 14px;
-      border-left: 3px solid var(--red);
-      font-size: 13px;
-      font-weight: 700;
-      line-height: 1.4;
-      max-width: 480px;
-    }
-
-    /* =========================
-       TEAM — RIGHT
-    ========================= */
-
-    .team-section {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .team-section .section-label {
-      margin-bottom: 12px;
-    }
-
-    .team-title {
-      font-size: clamp(55px, 7vw, 100px);
-      line-height: 0.8;
-      letter-spacing: -6px;
-      font-weight: 900;
-      margin-bottom: 30px;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-      width: 100%;
-    }
-
-    .member-card {
-      position: relative;
-      height: min(48vh, 430px);
-      min-height: 300px;
-      border: 1px solid var(--border);
-      background: var(--light-gray);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      transition: transform 0.25s ease, border-color 0.25s ease;
-    }
-
-    .member-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--black);
-    }
-
-    .member-photo {
-      position: absolute;
-      inset: 0;
-      background: #eeeeee;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-    }
-
-    .member-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .photo-placeholder {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 1.5px;
-      color: #999;
-    }
-
-    .member-info {
-      position: relative;
-      z-index: 2;
-      padding: 18px;
-      background: linear-gradient(
-        to top,
-        rgba(255,255,255,0.98) 0%,
-        rgba(255,255,255,0.94) 75%,
-        rgba(255,255,255,0) 100%
-      );
-      padding-top: 55px;
-    }
-
-    .member-name {
-      font-size: 20px;
-      font-weight: 900;
-      letter-spacing: -0.7px;
-    }
-
-    .member-major {
-      margin-top: 4px;
+    .resource-link {
+      justify-self: end;
       font-size: 10px;
       font-weight: 700;
       letter-spacing: 1px;
-      text-transform: uppercase;
       color: var(--red);
     }
 
-    .member-fun {
-      margin-top: 10px;
-      font-size: 11px;
-      line-height: 1.4;
-      color: var(--gray);
-      max-width: 220px;
+    .resource-link:hover {
+      text-decoration: underline;
     }
 
-    /* =========================
-       PAGE NUMBER
-    ========================= */
+    /* PAGE NUMBER */
 
     .page-number {
       position: absolute;
-      bottom: 25px;
-      left: 42px;
+      bottom: 34px;
+      left: 55px;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 1.5px;
+      color: var(--gray);
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 900px) {
-
-      html,
+    @media (max-width: 800px) {
       body {
         overflow: auto;
       }
 
-      .team-page {
+      .page {
         min-height: 100vh;
         height: auto;
-        overflow: visible;
+        padding: 25px;
       }
 
-      .top-nav {
-        position: relative;
-        height: 75px;
-        padding: 22px;
-      }
-
-      .team-content {
-        position: relative;
-        top: auto;
-        bottom: auto;
-        padding: 30px 22px 90px;
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-      }
-
-      .project-section {
-        height: auto;
-        padding-right: 0;
-      }
-
-      .project-title {
-        font-size: 58px;
-        letter-spacing: -4px;
-      }
-
-      .team-section {
-        height: auto;
-      }
-
-      .team-title {
-        font-size: 65px;
-      }
-
-      .team-grid {
+      .resource {
         grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 16px 0;
       }
 
-      .member-card {
-        height: 430px;
+      .resource-link {
+        justify-self: start;
+      }
+
+      h1 {
+        font-size: 55px;
       }
 
       .page-number {
-        position: fixed;
-        bottom: 20px;
-        left: 22px;
+        left: 25px;
       }
     }
   </style>
@@ -365,188 +200,207 @@
 
 <body>
 
-  <main class="team-page">
+  <div class="page">
 
-    <!-- TOP NAV -->
+    <!-- NAVIGATION -->
+
     <nav class="top-nav">
 
-      <!-- ONLY UC -->
-      <a href="index.html" class="uc-home">
+      <a href="index.html">
         <div class="uc-mark">UC</div>
       </a>
 
-      <a href="first-year.html" class="next-button">
-        NEXT →
-      </a>
+      <div class="nav-right">
+        <a href="index.html" class="nav-button">
+          ← BACK
+        </a>
+
+        <a href="tips.html" class="nav-button">
+          NEXT →
+        </a>
+      </div>
 
     </nav>
 
 
     <!-- MAIN CONTENT -->
-    <section class="team-content">
+
+    <main class="main">
+
+      <div class="label">
+        02 — KNOW YOUR CAMPUS
+      </div>
+
+      <h1>
+        UC RESOURCES
+      </h1>
+
+      <p class="intro">
+        The links you'll probably need before you know where anything is.
+      </p>
 
 
-      <!-- LEFT: PROJECT -->
-      <div class="project-section">
+      <div class="resource-list">
 
-        <div class="section-label">
-          01 — THE PROJECT
+        <!-- 01 -->
+
+        <div class="resource">
+
+          <div class="resource-name">
+            <span>01</span>
+            Bearcat Portal
+          </div>
+
+          <div class="resource-description">
+            Your central student hub for schedules, grades, academic information,
+            financial aid, advising, and other student tools.
+          </div>
+
+          <a
+            href="https://portal.uc.edu/"
+            target="_blank"
+            class="resource-link"
+          >
+            VISIT →
+          </a>
+
         </div>
 
-        <h1 class="project-title">
-          BEARCAT:<br>
-          NO <span>TUTORIAL.</span>
-        </h1>
 
-        <div class="project-copy">
+        <!-- 02 -->
 
-          <p>
-            Starting college feels a lot like playing a game
-            without instructions.
-          </p>
+        <div class="resource">
 
-          <p>
-            You're suddenly expected to figure out classes,
-            buildings, food, money, people, clubs, schedules,
-            and a hundred little things nobody really teaches you.
-          </p>
+          <div class="resource-name">
+            <span>02</span>
+            Catalyst
+          </div>
 
-          <p>
-            So we turned that experience into an interactive
-            freshman survival game.
-          </p>
+          <div class="resource-description">
+            UC's student information system for registration, schedules,
+            billing, financial aid, academic progress, and transcripts.
+          </div>
+
+          <a
+            href="https://www.uc.edu/about/ucit/campus-students/catalyst.html"
+            target="_blank"
+            class="resource-link"
+          >
+            VISIT →
+          </a>
 
         </div>
 
-        <div class="project-tags">
-          <div class="project-tag">AI-POWERED</div>
-          <div class="project-tag">REN'PY</div>
-          <div class="project-tag">PYTHON</div>
-          <div class="project-tag">GEMINI</div>
+
+        <!-- 03 -->
+
+        <div class="resource">
+
+          <div class="resource-name">
+            <span>03</span>
+            Canopy + Canvas
+          </div>
+
+          <div class="resource-description">
+            Your online learning tools for courses, assignments, announcements,
+            class materials, and communication.
+          </div>
+
+          <a
+            href="https://canopy.uc.edu/"
+            target="_blank"
+            class="resource-link"
+          >
+            VISIT →
+          </a>
+
         </div>
 
-        <div class="project-line">
-          Make choices. Get lost. Meet people. Make mistakes.
-          Somehow make it to day two.
+
+        <!-- 04 -->
+
+        <div class="resource">
+
+          <div class="resource-name">
+            <span>04</span>
+            IT Help
+          </div>
+
+          <div class="resource-description">
+            Get help with your UC account, password, technology, devices,
+            and other digital problems.
+          </div>
+
+          <a
+            href="https://www.uc.edu/dts"
+            target="_blank"
+            class="resource-link"
+          >
+            VISIT →
+          </a>
+
+        </div>
+
+
+        <!-- 05 -->
+
+        <div class="resource">
+
+          <div class="resource-name">
+            <span>05</span>
+            UC Calendar
+          </div>
+
+          <div class="resource-description">
+            Find university events, student activities, workshops,
+            important dates, and things happening around campus.
+          </div>
+
+          <a
+            href="https://www.uc.edu/calendar"
+            target="_blank"
+            class="resource-link"
+          >
+            VISIT →
+          </a>
+
+        </div>
+
+
+        <!-- 06 -->
+
+        <div class="resource">
+
+          <div class="resource-name">
+            <span>06</span>
+            Career Studio
+          </div>
+
+          <div class="resource-description">
+            Resources for resumes, interviews, career exploration,
+            networking, co-ops, internships, and job preparation.
+          </div>
+
+          <a
+            href="https://www.uc.edu/campus-life/career.html"
+            target="_blank"
+            class="resource-link"
+          >
+            VISIT →
+          </a>
+
         </div>
 
       </div>
 
-
-      <!-- RIGHT: TEAM -->
-      <div class="team-section">
-
-        <div class="section-label">
-          02 — THE PEOPLE
-        </div>
-
-        <h2 class="team-title">
-          US.
-        </h2>
-
-        <div class="team-grid">
+    </main>
 
 
-          <!-- MEMBER 1 -->
-          <article class="member-card">
-
-            <div class="member-photo">
-              <!-- Replace with your photo -->
-              <div class="photo-placeholder">
-                PHOTO
-              </div>
-            </div>
-
-            <div class="member-info">
-
-              <div class="member-name">
-                Riddhi Kumar
-              </div>
-
-              <div class="member-major">
-                Computer Science
-              </div>
-
-              <div class="member-fun">
-                Can somehow get lost while actively using Google Maps.
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- MEMBER 2 -->
-          <article class="member-card">
-
-            <div class="member-photo">
-              <!-- Replace with their photo -->
-              <div class="photo-placeholder">
-                PHOTO
-              </div>
-            </div>
-
-            <div class="member-info">
-
-              <div class="member-name">
-                NAME
-              </div>
-
-              <div class="member-major">
-                MAJOR
-              </div>
-
-              <div class="member-fun">
-                Somehow always knows where the food is.
-              </div>
-
-            </div>
-
-          </article>
-
-
-          <!-- MEMBER 3 -->
-          <article class="member-card">
-
-            <div class="member-photo">
-              <!-- Replace with their photo -->
-              <div class="photo-placeholder">
-                PHOTO
-              </div>
-            </div>
-
-            <div class="member-info">
-
-              <div class="member-name">
-                NAME
-              </div>
-
-              <div class="member-major">
-                MAJOR
-              </div>
-
-              <div class="member-fun">
-                Will absolutely attend an event if there's free food.
-              </div>
-
-            </div>
-
-          </article>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- PAGE NUMBER -->
     <div class="page-number">
-      01 / 04
+      02 / 04
     </div>
 
-  </main>
+  </div>
 
 </body>
 </html>

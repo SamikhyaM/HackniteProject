@@ -83,7 +83,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      padding: 25px 0 55px;
+      padding: 20px 0 50px;
     }
 
     .label {
@@ -95,63 +95,68 @@
     }
 
     h1 {
-      font-size: clamp(55px, 7vw, 95px);
+      font-size: clamp(50px, 6vw, 82px);
       line-height: 0.9;
-      letter-spacing: -5px;
+      letter-spacing: -4px;
       font-weight: 900;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
     .intro {
       color: var(--gray);
       font-size: 14px;
-      margin-bottom: 28px;
+      margin-bottom: 25px;
     }
 
-    /* RESOURCE LIST */
+    /* RESOURCE CARDS */
 
     .resource-list {
       width: 100%;
-      max-width: 1100px;
+      max-width: 1150px;
       border-top: 1px solid var(--border);
     }
 
     .resource {
       display: grid;
-      grid-template-columns: 230px 1fr 100px;
+      grid-template-columns: 55px 220px 1fr 125px;
       align-items: center;
-      gap: 30px;
-      min-height: 65px;
+      gap: 22px;
+      min-height: 67px;
       border-bottom: 1px solid var(--border);
     }
 
-    .resource-name {
-      font-size: 14px;
-      font-weight: 800;
+    .resource-number {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--red);
     }
 
-    .resource-name span {
-      color: var(--red);
-      margin-right: 8px;
-      font-size: 11px;
+    .resource-name {
+      font-size: 15px;
+      font-weight: 800;
     }
 
     .resource-description {
       font-size: 12px;
-      line-height: 1.4;
+      line-height: 1.45;
       color: var(--gray);
+      max-width: 600px;
     }
 
     .resource-link {
       justify-self: end;
-      font-size: 10px;
-      font-weight: 700;
+      border: 1px solid var(--black);
+      padding: 9px 12px;
+      font-size: 9px;
+      font-weight: 800;
       letter-spacing: 1px;
-      color: var(--red);
+      transition: 0.2s ease;
     }
 
     .resource-link:hover {
-      text-decoration: underline;
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
     }
 
     /* PAGE NUMBER */
@@ -166,7 +171,8 @@
       color: var(--gray);
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 900px) {
+
       body {
         overflow: auto;
       }
@@ -178,12 +184,17 @@
       }
 
       .resource {
-        grid-template-columns: 1fr;
-        gap: 8px;
+        grid-template-columns: 40px 1fr;
+        gap: 10px;
         padding: 16px 0;
       }
 
+      .resource-description {
+        grid-column: 2;
+      }
+
       .resource-link {
+        grid-column: 2;
         justify-self: start;
       }
 
@@ -211,6 +222,7 @@
       </a>
 
       <div class="nav-right">
+
         <a href="index.html" class="nav-button">
           ← BACK
         </a>
@@ -218,6 +230,7 @@
         <a href="tips.html" class="nav-button">
           NEXT →
         </a>
+
       </div>
 
     </nav>
@@ -236,24 +249,31 @@
       </h1>
 
       <p class="intro">
-        The links you'll probably need before you know where anything is.
+        The websites that make freshman life a little less confusing.
       </p>
 
 
       <div class="resource-list">
 
-        <!-- 01 -->
+
+        <!-- RESOURCE 01 -->
 
         <div class="resource">
 
+          <div class="resource-number">
+            01
+          </div>
+
           <div class="resource-name">
-            <span>01</span>
             Bearcat Portal
           </div>
 
           <div class="resource-description">
-            Your central student hub for schedules, grades, academic information,
-            financial aid, advising, and other student tools.
+            Think of this as one of your main starting points as a UC student.
+            The Bearcat Portal brings together important student tools and
+            information in one place. Use it to find things like academic
+            information, student services, and other resources you'll need
+            throughout your time at UC.
           </div>
 
           <a
@@ -261,24 +281,31 @@
             target="_blank"
             class="resource-link"
           >
-            VISIT →
+            VISIT WEBSITE →
           </a>
 
         </div>
 
 
-        <!-- 02 -->
+        <!-- RESOURCE 02 -->
 
         <div class="resource">
 
+          <div class="resource-number">
+            02
+          </div>
+
           <div class="resource-name">
-            <span>02</span>
             Catalyst
           </div>
 
           <div class="resource-description">
-            UC's student information system for registration, schedules,
-            billing, financial aid, academic progress, and transcripts.
+            Catalyst is where a lot of the serious student-administration
+            stuff happens. You'll use it for things such as course
+            registration, schedules, academic information, financial details,
+            and accessing your student record. If you're dealing with
+            classes or your official student information, Catalyst is one
+            of the places to check.
           </div>
 
           <a
@@ -286,24 +313,30 @@
             target="_blank"
             class="resource-link"
           >
-            VISIT →
+            VISIT WEBSITE →
           </a>
 
         </div>
 
 
-        <!-- 03 -->
+        <!-- RESOURCE 03 -->
 
         <div class="resource">
 
+          <div class="resource-number">
+            03
+          </div>
+
           <div class="resource-name">
-            <span>03</span>
             Canopy + Canvas
           </div>
 
           <div class="resource-description">
-            Your online learning tools for courses, assignments, announcements,
-            class materials, and communication.
+            This is where much of your actual classwork lives online.
+            Depending on your course, you may use Canvas to find assignments,
+            announcements, course materials, grades, and other information
+            from your professors. Check your courses regularly so you don't
+            discover an assignment exists after it was due.
           </div>
 
           <a
@@ -311,24 +344,31 @@
             target="_blank"
             class="resource-link"
           >
-            VISIT →
+            VISIT WEBSITE →
           </a>
 
         </div>
 
 
-        <!-- 04 -->
+        <!-- RESOURCE 04 -->
 
         <div class="resource">
 
+          <div class="resource-number">
+            04
+          </div>
+
           <div class="resource-name">
-            <span>04</span>
             IT Help
           </div>
 
           <div class="resource-description">
-            Get help with your UC account, password, technology, devices,
-            and other digital problems.
+            Something isn't working? Your account, password, computer,
+            Wi-Fi, or another piece of technology is causing problems?
+            UC's Digital Technology Solutions provides technology support
+            and information for students. Save this one before you actually
+            need it — because something eventually will stop working at
+            the worst possible time.
           </div>
 
           <a
@@ -336,24 +376,31 @@
             target="_blank"
             class="resource-link"
           >
-            VISIT →
+            VISIT WEBSITE →
           </a>
 
         </div>
 
 
-        <!-- 05 -->
+        <!-- RESOURCE 05 -->
 
         <div class="resource">
 
+          <div class="resource-number">
+            05
+          </div>
+
           <div class="resource-name">
-            <span>05</span>
             UC Calendar
           </div>
 
           <div class="resource-description">
-            Find university events, student activities, workshops,
-            important dates, and things happening around campus.
+            UC has events happening constantly, but you won't know about all
+            of them unless you look. The university calendar can help you
+            find campus events, activities, workshops, important dates,
+            and other things happening around UC. It is also a good place
+            to look when you have absolutely no idea what to do with your
+            free time.
           </div>
 
           <a
@@ -361,24 +408,30 @@
             target="_blank"
             class="resource-link"
           >
-            VISIT →
+            VISIT WEBSITE →
           </a>
 
         </div>
 
 
-        <!-- 06 -->
+        <!-- RESOURCE 06 -->
 
         <div class="resource">
 
+          <div class="resource-number">
+            06
+          </div>
+
           <div class="resource-name">
-            <span>06</span>
             Career Studio
           </div>
 
           <div class="resource-description">
-            Resources for resumes, interviews, career exploration,
-            networking, co-ops, internships, and job preparation.
+            You don't have to wait until senior year to think about your
+            career. Career Studio can help with resumes, interviews,
+            networking, career exploration, internships, co-ops, and
+            preparing for opportunities. For a freshman, it can simply be
+            a place to start figuring out what you might want to do next.
           </div>
 
           <a
@@ -386,10 +439,11 @@
             target="_blank"
             class="resource-link"
           >
-            VISIT →
+            VISIT WEBSITE →
           </a>
 
         </div>
+
 
       </div>
 

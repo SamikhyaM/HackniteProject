@@ -22,10 +22,11 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      width: 100%;
-      height: 100vh;
-      overflow: hidden;
       background: var(--white);
       color: var(--black);
       font-family: Arial, Helvetica, sans-serif;
@@ -36,13 +37,12 @@
       text-decoration: none;
     }
 
+    /* PAGE */
+
     .page {
-      position: relative;
       width: 100%;
-      height: 100vh;
-      padding: 34px 55px;
-      display: flex;
-      flex-direction: column;
+      min-height: 100vh;
+      padding: 34px 55px 90px;
     }
 
     /* NAVIGATION */
@@ -51,6 +51,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 90px;
     }
 
     .uc-mark {
@@ -76,14 +77,11 @@
       letter-spacing: 2.5px;
     }
 
-    /* MAIN */
+    /* HEADER */
 
-    .main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 20px 0 50px;
+    .header {
+      max-width: 1000px;
+      margin-bottom: 100px;
     }
 
     .label {
@@ -91,119 +89,138 @@
       font-weight: 700;
       letter-spacing: 2px;
       color: var(--red);
-      margin-bottom: 14px;
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: clamp(50px, 6vw, 82px);
-      line-height: 0.9;
-      letter-spacing: -4px;
+      font-size: clamp(60px, 8vw, 110px);
+      line-height: 0.88;
+      letter-spacing: -6px;
       font-weight: 900;
-      margin-bottom: 12px;
-    }
-
-    .intro {
-      color: var(--gray);
-      font-size: 14px;
       margin-bottom: 25px;
     }
 
-    /* RESOURCE CARDS */
+    .intro {
+      max-width: 650px;
+      color: var(--gray);
+      font-size: 16px;
+      line-height: 1.6;
+    }
 
-    .resource-list {
-      width: 100%;
-      max-width: 1150px;
-      border-top: 1px solid var(--border);
+    /* RESOURCES */
+
+    .resources {
+      max-width: 950px;
+      margin-left: 8%;
     }
 
     .resource {
-      display: grid;
-      grid-template-columns: 55px 220px 1fr 125px;
-      align-items: center;
-      gap: 22px;
-      min-height: 67px;
-      border-bottom: 1px solid var(--border);
+      margin-bottom: 100px;
     }
 
     .resource-number {
-      font-size: 11px;
-      font-weight: 700;
       color: var(--red);
-    }
-
-    .resource-name {
-      font-size: 15px;
-      font-weight: 800;
-    }
-
-    .resource-description {
       font-size: 12px;
-      line-height: 1.45;
-      color: var(--gray);
-      max-width: 600px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
     }
 
-    .resource-link {
-      justify-self: end;
-      border: 1px solid var(--black);
-      padding: 9px 12px;
-      font-size: 9px;
+    .resource h2 {
+      font-size: 38px;
+      line-height: 1;
+      letter-spacing: -1.5px;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .resource p {
+      max-width: 780px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: #333333;
+      margin-bottom: 22px;
+    }
+
+    .website-link {
+      display: inline-block;
+      color: var(--red);
+      font-size: 11px;
       font-weight: 800;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
+      border-bottom: 1px solid var(--red);
+      padding-bottom: 5px;
       transition: 0.2s ease;
     }
 
-    .resource-link:hover {
-      background: var(--red);
-      border-color: var(--red);
-      color: var(--white);
+    .website-link:hover {
+      color: var(--black);
+      border-color: var(--black);
     }
 
-    /* PAGE NUMBER */
+    /* FOOTER */
+
+    .bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+      padding-top: 25px;
+      border-top: 1px solid var(--border);
+    }
 
     .page-number {
-      position: absolute;
-      bottom: 34px;
-      left: 55px;
       font-size: 11px;
       font-weight: 700;
       letter-spacing: 1.5px;
       color: var(--gray);
     }
 
-    @media (max-width: 900px) {
+    .bottom-text {
+      font-size: 10px;
+      color: var(--gray);
+      letter-spacing: 1px;
+    }
 
-      body {
-        overflow: auto;
-      }
+    @media (max-width: 800px) {
 
       .page {
-        min-height: 100vh;
-        height: auto;
-        padding: 25px;
+        padding: 25px 25px 70px;
       }
 
-      .resource {
-        grid-template-columns: 40px 1fr;
-        gap: 10px;
-        padding: 16px 0;
+      .top-nav {
+        margin-bottom: 60px;
       }
 
-      .resource-description {
-        grid-column: 2;
-      }
-
-      .resource-link {
-        grid-column: 2;
-        justify-self: start;
+      .header {
+        margin-bottom: 70px;
       }
 
       h1 {
-        font-size: 55px;
+        font-size: 62px;
+        letter-spacing: -4px;
       }
 
-      .page-number {
-        left: 25px;
+      .resources {
+        margin-left: 0;
+      }
+
+      .resource {
+        margin-bottom: 70px;
+      }
+
+      .resource h2 {
+        font-size: 32px;
+      }
+
+      .resource p {
+        font-size: 14px;
+      }
+
+      .bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
       }
     }
   </style>
@@ -236,222 +253,240 @@
     </nav>
 
 
-    <!-- MAIN CONTENT -->
+    <!-- HEADER -->
 
-    <main class="main">
+    <header class="header">
 
       <div class="label">
         02 — KNOW YOUR CAMPUS
       </div>
 
       <h1>
-        UC RESOURCES
+        UC<br>
+        RESOURCES
       </h1>
 
       <p class="intro">
-        The websites that make freshman life a little less confusing.
+        Starting college means suddenly having access to a ridiculous
+        number of websites, portals, systems, and tools. These are some
+        of the ones you're most likely to actually use.
       </p>
 
+    </header>
 
-      <div class="resource-list">
+
+    <!-- RESOURCES -->
+
+    <main class="resources">
 
 
-        <!-- RESOURCE 01 -->
+      <!-- 01 -->
 
-        <div class="resource">
+      <section class="resource">
 
-          <div class="resource-number">
-            01
-          </div>
-
-          <div class="resource-name">
-            Bearcat Portal
-          </div>
-
-          <div class="resource-description">
-            Think of this as one of your main starting points as a UC student.
-            The Bearcat Portal brings together important student tools and
-            information in one place. Use it to find things like academic
-            information, student services, and other resources you'll need
-            throughout your time at UC.
-          </div>
-
-          <a
-            href="https://portal.uc.edu/"
-            target="_blank"
-            class="resource-link"
-          >
-            VISIT WEBSITE →
-          </a>
-
+        <div class="resource-number">
+          01
         </div>
 
+        <h2>
+          Bearcat Portal
+        </h2>
 
-        <!-- RESOURCE 02 -->
+        <p>
+          The Bearcat Portal is one of the main places to start when you
+          need to find UC student information and services. It brings
+          together access to important student tools and resources, so
+          you don't have to remember where every individual system lives.
+          As a new student, it is worth getting familiar with the portal
+          early because you'll probably return to it throughout your time
+          at UC.
+        </p>
 
-        <div class="resource">
+        <a
+          href="https://portal.uc.edu/"
+          target="_blank"
+          class="website-link"
+        >
+          VISIT BEARCAT PORTAL →
+        </a>
 
-          <div class="resource-number">
-            02
-          </div>
+      </section>
 
-          <div class="resource-name">
-            Catalyst
-          </div>
 
-          <div class="resource-description">
-            Catalyst is where a lot of the serious student-administration
-            stuff happens. You'll use it for things such as course
-            registration, schedules, academic information, financial details,
-            and accessing your student record. If you're dealing with
-            classes or your official student information, Catalyst is one
-            of the places to check.
-          </div>
+      <!-- 02 -->
 
-          <a
-            href="https://www.uc.edu/about/ucit/campus-students/catalyst.html"
-            target="_blank"
-            class="resource-link"
-          >
-            VISIT WEBSITE →
-          </a>
+      <section class="resource">
 
+        <div class="resource-number">
+          02
         </div>
 
+        <h2>
+          Catalyst
+        </h2>
 
-        <!-- RESOURCE 03 -->
+        <p>
+          Catalyst is UC's student information system. This is where you'll
+          deal with many of the official parts of being a student, including
+          course registration, your class schedule, academic information,
+          financial information, and your student record. If you're trying
+          to figure out something official about your classes or student
+          account, Catalyst is one of the first places you should check.
+        </p>
 
-        <div class="resource">
+        <a
+          href="https://www.uc.edu/about/ucit/campus-students/catalyst.html"
+          target="_blank"
+          class="website-link"
+        >
+          VISIT CATALYST →
+        </a>
 
-          <div class="resource-number">
-            03
-          </div>
+      </section>
 
-          <div class="resource-name">
-            Canopy + Canvas
-          </div>
 
-          <div class="resource-description">
-            This is where much of your actual classwork lives online.
-            Depending on your course, you may use Canvas to find assignments,
-            announcements, course materials, grades, and other information
-            from your professors. Check your courses regularly so you don't
-            discover an assignment exists after it was due.
-          </div>
+      <!-- 03 -->
 
-          <a
-            href="https://canopy.uc.edu/"
-            target="_blank"
-            class="resource-link"
-          >
-            VISIT WEBSITE →
-          </a>
+      <section class="resource">
 
+        <div class="resource-number">
+          03
         </div>
 
+        <h2>
+          Canopy + Canvas
+        </h2>
 
-        <!-- RESOURCE 04 -->
+        <p>
+          Your classes don't stop existing when you leave the classroom.
+          Canvas is where you'll often find course materials, assignments,
+          announcements, grades, and other information from your professors.
+          Checking your courses regularly is one of those boring habits
+          that can save you from realizing at 11:47 PM that something was
+          due at midnight.
+        </p>
 
-        <div class="resource">
+        <a
+          href="https://canopy.uc.edu/"
+          target="_blank"
+          class="website-link"
+        >
+          VISIT CANOPY →
+        </a>
 
-          <div class="resource-number">
-            04
-          </div>
+      </section>
 
-          <div class="resource-name">
-            IT Help
-          </div>
 
-          <div class="resource-description">
-            Something isn't working? Your account, password, computer,
-            Wi-Fi, or another piece of technology is causing problems?
-            UC's Digital Technology Solutions provides technology support
-            and information for students. Save this one before you actually
-            need it — because something eventually will stop working at
-            the worst possible time.
-          </div>
+      <!-- 04 -->
 
-          <a
-            href="https://www.uc.edu/dts"
-            target="_blank"
-            class="resource-link"
-          >
-            VISIT WEBSITE →
-          </a>
+      <section class="resource">
 
+        <div class="resource-number">
+          04
         </div>
 
+        <h2>
+          IT Help
+        </h2>
 
-        <!-- RESOURCE 05 -->
+        <p>
+          Technology is going to be a huge part of your life at UC, which
+          also means something will eventually stop working when you need
+          it most. UC's Digital Technology Solutions provides support for
+          technology-related problems, accounts, passwords, and other
+          digital services. Save this website before you actually have a
+          problem with something.
+        </p>
 
-        <div class="resource">
+        <a
+          href="https://www.uc.edu/dts"
+          target="_blank"
+          class="website-link"
+        >
+          VISIT IT HELP →
+        </a>
 
-          <div class="resource-number">
-            05
-          </div>
+      </section>
 
-          <div class="resource-name">
-            UC Calendar
-          </div>
 
-          <div class="resource-description">
-            UC has events happening constantly, but you won't know about all
-            of them unless you look. The university calendar can help you
-            find campus events, activities, workshops, important dates,
-            and other things happening around UC. It is also a good place
-            to look when you have absolutely no idea what to do with your
-            free time.
-          </div>
+      <!-- 05 -->
 
-          <a
-            href="https://www.uc.edu/calendar"
-            target="_blank"
-            class="resource-link"
-          >
-            VISIT WEBSITE →
-          </a>
+      <section class="resource">
 
+        <div class="resource-number">
+          05
         </div>
 
+        <h2>
+          UC Calendar
+        </h2>
 
-        <!-- RESOURCE 06 -->
+        <p>
+          There is almost always something happening around campus, but
+          finding it can be another story. The UC Calendar collects
+          university events, activities, workshops, important dates, and
+          other campus happenings. If you're sitting in your dorm wondering
+          what everyone else is doing, this is a good place to start.
+        </p>
 
-        <div class="resource">
+        <a
+          href="https://www.uc.edu/calendar"
+          target="_blank"
+          class="website-link"
+        >
+          VISIT UC CALENDAR →
+        </a>
 
-          <div class="resource-number">
-            06
-          </div>
+      </section>
 
-          <div class="resource-name">
-            Career Studio
-          </div>
 
-          <div class="resource-description">
-            You don't have to wait until senior year to think about your
-            career. Career Studio can help with resumes, interviews,
-            networking, career exploration, internships, co-ops, and
-            preparing for opportunities. For a freshman, it can simply be
-            a place to start figuring out what you might want to do next.
-          </div>
+      <!-- 06 -->
 
-          <a
-            href="https://www.uc.edu/campus-life/career.html"
-            target="_blank"
-            class="resource-link"
-          >
-            VISIT WEBSITE →
-          </a>
+      <section class="resource">
 
+        <div class="resource-number">
+          06
         </div>
 
+        <h2>
+          Career Studio
+        </h2>
 
-      </div>
+        <p>
+          You don't have to wait until graduation to start thinking about
+          what comes next. Career Studio can help students with things like
+          resumes, interviews, networking, career exploration, internships,
+          and co-ops. Even if you have absolutely no idea what you want to
+          do yet, it can be useful for figuring out what opportunities are
+          available and how to prepare for them.
+        </p>
+
+        <a
+          href="https://www.uc.edu/campus-life/career.html"
+          target="_blank"
+          class="website-link"
+        >
+          VISIT CAREER STUDIO →
+        </a>
+
+      </section>
+
 
     </main>
 
 
-    <div class="page-number">
-      02 / 04
+    <!-- BOTTOM -->
+
+    <div class="bottom">
+
+      <div class="page-number">
+        02 / 04
+      </div>
+
+      <div class="bottom-text">
+        BEARCAT: NO TUTORIAL.
+      </div>
+
     </div>
 
   </div>

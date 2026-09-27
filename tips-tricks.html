@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Tips + Tricks — Bearcat: No Tutorial</title>
+
+  <style>
+    :root {
+      --red: #e00122;
+      --black: #080808;
+      --white: #ffffff;
+      --gray: #666666;
+      --light-gray: #f5f5f5;
+      --border: #dcdcdc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--black);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* =========================
+       PAGE
+    ========================= */
+
+    .tips-page {
+      width: 100vw;
+      height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* =========================
+       NAV
+    ========================= */
+
+    .top-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      padding: 28px 42px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      z-index: 10;
+    }
+
+    .uc-mark {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      color: var(--red);
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-button {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      border-bottom: 1px solid var(--black);
+      padding-bottom: 5px;
+      transition: 0.2s ease;
+    }
+
+    .nav-button:hover {
+      color: var(--red);
+      border-color: var(--red);
+    }
+
+    /* =========================
+       CONTENT
+    ========================= */
+
+    .tips-content {
+      position: absolute;
+      top: 90px;
+      left: 0;
+      right: 0;
+      bottom: 55px;
+
+      padding: 25px 42px 30px;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+
+    .main-heading {
+      font-size: clamp(58px, 7vw, 100px);
+      line-height: 0.85;
+      letter-spacing: -6px;
+      font-weight: 900;
+      margin-bottom: 12px;
+    }
+
+    .intro {
+      color: var(--gray);
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 25px;
+    }
+
+    /* =========================
+       TIPS LIST
+    ========================= */
+
+    .tips-list {
+      width: 100%;
+      border-top: 1px solid var(--black);
+
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tip {
+      flex: 1;
+
+      display: grid;
+      grid-template-columns: 55px 1.15fr 2fr;
+      align-items: center;
+      gap: 25px;
+
+      border-bottom: 1px solid var(--border);
+
+      transition: 0.2s ease;
+    }
+
+    .tip:hover {
+      background: var(--light-gray);
+      padding-left: 8px;
+      padding-right: 8px;
+    }
+
+    .tip-number {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--red);
+      letter-spacing: 1px;
+    }
+
+    .tip-title {
+      font-size: 19px;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+
+    .tip-text {
+      font-size: 12px;
+      line-height: 1.45;
+      color: var(--gray);
+      max-width: 650px;
+    }
+
+    .tip-text strong {
+      color: var(--black);
+    }
+
+    /* =========================
+       PAGE NUMBER
+    ========================= */
+
+    .page-number {
+      position: absolute;
+      bottom: 25px;
+      left: 42px;
+
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 850px) {
+
+      html,
+      body {
+        overflow: auto;
+      }
+
+      .tips-page {
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+      }
+
+      .top-nav {
+        position: relative;
+        height: 75px;
+        padding: 22px;
+      }
+
+      .tips-content {
+        position: relative;
+        top: auto;
+        bottom: auto;
+
+        padding: 25px 22px 80px;
+      }
+
+      .main-heading {
+        font-size: 60px;
+        letter-spacing: -4px;
+      }
+
+      .tips-list {
+        flex: none;
+      }
+
+      .tip {
+        min-height: 125px;
+
+        grid-template-columns: 35px 1fr;
+        gap: 10px;
+
+        padding: 18px 0;
+      }
+
+      .tip-number {
+        align-self: start;
+        padding-top: 3px;
+      }
+
+      .tip-title {
+        font-size: 18px;
+      }
+
+      .tip-text {
+        grid-column: 2;
+      }
+
+      .page-number {
+        position: fixed;
+        bottom: 20px;
+        left: 22px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="tips-page">
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav class="top-nav">
+
+      <a href="index.html">
+        <div class="uc-mark">UC</div>
+      </a>
+
+      <div class="nav-right">
+
+        <a href="resources.html" class="nav-button">
+          ← BACK
+        </a>
+
+        <a href="game.html" class="nav-button">
+          NEXT →
+        </a>
+
+      </div>
+
+    </nav>
+
+
+    <!-- =========================
+         MAIN CONTENT
+    ========================== -->
+
+    <section class="tips-content">
+
+      <div class="section-label">
+        03 — SURVIVAL GUIDE
+      </div>
+
+      <h1 class="main-heading">
+        TIPS + TRICKS
+      </h1>
+
+      <p class="intro">
+        Things you figure out after making the mistake once.
+      </p>
+
+
+      <!-- =========================
+           TIPS
+      ========================== -->
+
+      <div class="tips-list">
+
+
+        <!-- 01 -->
+
+        <article class="tip">
+
+          <div class="tip-number">
+            01
+          </div>
+
+          <div class="tip-title">
+            Learn Your Route
+          </div>
+
+          <div class="tip-text">
+            Walk your class route before you actually need it.
+            <strong>Five extra minutes of exploring beats being
+            five minutes late.</strong>
+          </div>
+
+        </article>
+
+
+        <!-- 02 -->
+
+        <article class="tip">
+
+          <div class="tip-number">
+            02
+          </div>
+
+          <div class="tip-title">
+            Save Your Syllabus
+          </div>
+
+          <div class="tip-text">
+            Keep your syllabi somewhere easy to find. Put important
+            deadlines into your calendar before the semester gets chaotic.
+          </div>
+
+        </article>
+
+
+        <!-- 03 -->
+
+        <article class="tip">
+
+          <div class="tip-number">
+            03
+          </div>
+
+          <div class="tip-title">
+            Carry the Essentials
+          </div>
+
+          <div class="tip-text">
+            Phone, charger, water, Bearcat Card, headphones and
+            something to eat. <strong>Your backpack is basically
+            your mobile survival kit.</strong>
+          </div>
+
+        </article>
+
+
+        <!-- 04 -->
+
+        <article class="tip">
+
+          <div class="tip-number">
+            04
+          </div>
+
+          <div class="tip-title">
+            Don't Skip Everything
+          </div>
+
+          <div class="tip-text">
+            You do not have to attend every event. But try something
+            new occasionally. Clubs and campus events are an easy way
+            to meet people.
+          </div>
+
+        </article>
+
+
+        <!-- 05 -->
+
+        <article class="tip">
+
+          <div class="tip-number">
+            05
+          </div>
+
+          <div class="tip-title">
+            Ask For Help
+          </div>
+
+          <div class="tip-text">
+            Professors, advisors, classmates, resident advisors and
+            campus staff are there for a reason. <strong>Asking early
+            is usually easier than fixing it later.</strong>
+          </div>
+
+        </article>
+
+
+        <!-- 06 -->
+
+        <article class="tip">
+
+          <div class="tip-number">
+            06
+          </div>
+
+          <div class="tip-title">
+            Leave Room For Chaos
+          </div>
+
+          <div class="tip-text">
+            Your perfectly planned day will probably not stay perfect.
+            A missed shuttle, unexpected rain or wrong building happens.
+            <strong>Adapt and keep moving.</strong>
+          </div>
+
+        </article>
+
+
+      </div>
+
+    </section>
+
+
+    <!-- PAGE NUMBER -->
+
+    <div class="page-number">
+      03 / 04
+    </div>
+
+  </main>
+
+</body>
+</html>

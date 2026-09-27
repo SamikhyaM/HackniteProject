@@ -1,217 +1,719 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Freshman Year | Bearcat: No Tutorial</title>
+    <title>Bearcat: No Tutorial — Freshman Year</title>
 
     <link rel="stylesheet" href="css/style.css">
 
+    <style>
+
+        /* =========================
+           PAGE 2 — FRESHMAN YEAR
+        ========================= */
+
+        .experience-page {
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+
+            position: relative;
+
+            background: #080808;
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .top-nav {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 82px;
+
+            padding: 0 4vw;
+
+            box-sizing: border-box;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            z-index: 10;
+        }
+
+
+        .uc-home {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            color: #ffffff;
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            letter-spacing: 0.08em;
+        }
+
+
+        .uc-mark {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+
+        /* NAV BUTTONS */
+
+        .page-navigation {
+            display: flex;
+            gap: 8px;
+        }
+
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 11px 16px;
+
+            border: 1px solid #333333;
+
+            color: #ffffff;
+            text-decoration: none;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 0.12em;
+
+            transition: all 0.25s ease;
+        }
+
+
+        .nav-button:hover {
+            border-color: #e00122;
+            background: #e00122;
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        .experience-content {
+
+            width: 100%;
+            height: 100%;
+
+            box-sizing: border-box;
+
+            padding: 120px 4vw 55px;
+
+            display: grid;
+
+            grid-template-columns: 38% 62%;
+
+            gap: 4vw;
+        }
+
+
+        /* =========================
+           LEFT SIDE
+        ========================= */
+
+        .experience-heading {
+
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+        }
+
+
+        .eyebrow {
+
+            color: #e00122;
+
+            font-size: 12px;
+            font-weight: 900;
+
+            letter-spacing: 0.2em;
+
+            margin-bottom: 20px;
+        }
+
+
+        .experience-heading h1 {
+
+            margin: 0;
+
+            font-size: clamp(55px, 6.5vw, 105px);
+
+            line-height: 0.87;
+
+            letter-spacing: -0.065em;
+
+            font-weight: 900;
+
+            text-transform: uppercase;
+        }
+
+
+        .experience-heading h1 span {
+
+            color: #e00122;
+        }
+
+
+        .heading-description {
+
+            max-width: 390px;
+
+            margin-top: 30px;
+
+            color: #a8a8a8;
+
+            font-size: 16px;
+
+            line-height: 1.55;
+        }
+
+
+        /* =========================
+           EXPERIENCE GRID
+        ========================= */
+
+        .experience-grid {
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            grid-template-rows: 1fr 1fr;
+
+            gap: 14px;
+
+            align-self: center;
+        }
+
+
+        .experience-card {
+
+            position: relative;
+
+            padding: 24px;
+
+            border: 1px solid #292929;
+
+            background: #111111;
+
+            transition: all 0.25s ease;
+        }
+
+
+        .experience-card:hover {
+
+            border-color: #e00122;
+
+            transform: translateY(-4px);
+        }
+
+
+        .experience-number {
+
+            color: #e00122;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            letter-spacing: 0.12em;
+        }
+
+
+        .experience-card h2 {
+
+            margin: 25px 0 10px;
+
+            font-size: clamp(22px, 2vw, 31px);
+
+            line-height: 1;
+
+            letter-spacing: -0.04em;
+
+            text-transform: uppercase;
+        }
+
+
+        .experience-card p {
+
+            margin: 0;
+
+            color: #999999;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================
+           GAME CTA
+        ========================= */
+
+        .game-cta {
+
+            position: absolute;
+
+            left: 4vw;
+            right: 4vw;
+
+            bottom: 22px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding-top: 15px;
+
+            border-top: 1px solid #252525;
+        }
+
+
+        .cta-label {
+
+            color: #666666;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.15em;
+
+            text-transform: uppercase;
+        }
+
+
+        .game-button {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 15px 20px;
+
+            background: #e00122;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            font-weight: 900;
+
+            letter-spacing: 0.12em;
+
+            transition: all 0.25s ease;
+        }
+
+
+        .game-button:hover {
+
+            background: #ffffff;
+
+            color: #080808;
+
+            transform: translateX(5px);
+        }
+
+
+        /* =========================
+           PAGE NUMBER
+        ========================= */
+
+        .page-number {
+
+            position: absolute;
+
+            bottom: 25px;
+
+            left: 4vw;
+
+            color: #555555;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.15em;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .experience-content {
+
+                grid-template-columns: 1fr;
+
+                padding-top: 105px;
+
+                padding-bottom: 90px;
+            }
+
+
+            .experience-heading {
+
+                justify-content: flex-start;
+            }
+
+
+            .experience-heading h1 {
+
+                font-size: 60px;
+            }
+
+
+            .heading-description {
+
+                margin-top: 15px;
+
+                font-size: 14px;
+            }
+
+
+            .experience-grid {
+
+                align-self: stretch;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .experience-page {
+
+                height: auto;
+
+                min-height: 100vh;
+
+                overflow: auto;
+            }
+
+
+            .experience-content {
+
+                display: block;
+            }
+
+
+            .experience-grid {
+
+                display: grid;
+
+                grid-template-columns: 1fr;
+
+                margin-top: 30px;
+            }
+
+
+            .experience-card {
+
+                min-height: 170px;
+            }
+
+
+            .page-navigation .previous-text {
+
+                display: none;
+            }
+
+
+            .cta-label {
+
+                display: none;
+            }
+        }
+
+    </style>
 </head>
 
 
 <body>
 
-<nav class="navbar">
 
-    <a href="index.html" class="logo">
-        BEARCAT<span>:</span>NO TUTORIAL
-    </a>
+<div class="experience-page">
 
-    <div class="nav-links">
-        <a href="index.html">TEAM</a>
-        <a href="first-year.html">FIRST YEAR</a>
-        <a href="game.html">THE GAME</a>
-        <a href="project.html">WHY?</a>
+
+    <!-- =========================
+         TOP NAV
+    ========================= -->
+
+    <nav class="top-nav">
+
+
+        <!-- HOME / UC -->
+
+        <a href="index.html" class="uc-home">
+
+            <div class="uc-mark">
+                UC
+            </div>
+
+            <span>
+                BEARCAT: NO TUTORIAL
+            </span>
+
+        </a>
+
+
+        <!-- PREVIOUS / NEXT -->
+
+        <div class="page-navigation">
+
+            <a href="index.html" class="nav-button">
+
+                <span>←</span>
+
+                <span class="previous-text">
+                    PREVIOUS
+                </span>
+
+            </a>
+
+
+            <a href="game.html" class="nav-button">
+
+                <span>
+                    NEXT
+                </span>
+
+                <span>→</span>
+
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         MAIN
+    ========================= -->
+
+    <main class="experience-content">
+
+
+        <!-- LEFT -->
+
+        <section class="experience-heading">
+
+
+            <div class="eyebrow">
+                02 — THE EXPERIENCE
+            </div>
+
+
+            <h1>
+
+                SO...
+                <br>
+
+                WHAT IS
+                <br>
+
+                FRESHMAN
+                <br>
+
+                YEAR<span>?</span>
+
+            </h1>
+
+
+            <p class="heading-description">
+
+                Nobody really tells you what the first year
+                feels like. You just show up and start
+                figuring it out.
+
+            </p>
+
+
+        </section>
+
+
+
+        <!-- RIGHT -->
+
+        <section class="experience-grid">
+
+
+            <!-- CARD 1 -->
+
+            <article class="experience-card">
+
+                <div class="experience-number">
+                    01
+                </div>
+
+                <h2>
+                    Find
+                    <br>
+                    Your Class
+                </h2>
+
+                <p>
+                    You know the building.
+                    Probably.
+                    Now you just have to find
+                    the room.
+                </p>
+
+            </article>
+
+
+
+            <!-- CARD 2 -->
+
+            <article class="experience-card">
+
+                <div class="experience-number">
+                    02
+                </div>
+
+                <h2>
+                    Meet
+                    <br>
+                    People
+                </h2>
+
+                <p>
+                    Some conversations are
+                    effortless. Others begin with
+                    "Is this seat taken?"
+                </p>
+
+            </article>
+
+
+
+            <!-- CARD 3 -->
+
+            <article class="experience-card">
+
+                <div class="experience-number">
+                    03
+                </div>
+
+                <h2>
+                    Get
+                    <br>
+                    Lost
+                </h2>
+
+                <p>
+                    Baldwin Hall exists.
+                    Your sense of direction
+                    may not.
+                </p>
+
+            </article>
+
+
+
+            <!-- CARD 4 -->
+
+            <article class="experience-card">
+
+                <div class="experience-number">
+                    04
+                </div>
+
+                <h2>
+                    Figure
+                    <br>
+                    It Out
+                </h2>
+
+                <p>
+                    Classes. Food. Clubs.
+                    Money. Friends.
+                    Somehow, you make it work.
+                </p>
+
+            </article>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         GAME CTA
+    ========================= -->
+
+    <div class="game-cta">
+
+        <div class="cta-label">
+            THERE ISN'T REALLY A TUTORIAL.
+        </div>
+
+
+        <a href="game.html" class="game-button">
+
+            WE MADE A GAME ABOUT IT
+
+            <span>
+                →
+            </span>
+
+        </a>
+
     </div>
 
-</nav>
 
 
-<main>
+    <!-- PAGE NUMBER -->
 
-
-<section class="hero">
-
-    <div class="hero-small">
-        02 / FIRST YEAR
+    <div class="page-number">
+        02 / 05
     </div>
 
-    <h1>
-        SO...<br>
-        WHAT DOES<br>
-        <span>FRESHMAN YEAR</span><br>
-        LOOK LIKE?
-    </h1>
 
-    <p class="intro-text">
-        It starts with something simple.
-    </p>
-
-</section>
-
-
-<section class="team-section">
-
-    <div class="section-label">
-        DAY 01
-    </div>
-
-    <h2>
-        8:00 AM
-    </h2>
-
-    <p class="section-description">
-        Your alarm goes off.
-        You have your first class.
-        You don't know where it is.
-    </p>
-
-</section>
-
-
-<section class="transition">
-
-    <div class="section-label">
-        08:30 AM
-    </div>
-
-    <h2>
-        FIND<br>
-        YOUR<br>
-        CLASS.
-    </h2>
-
-    <p>
-        You check your schedule.
-        You check the map.
-        You check your schedule again.
-    </p>
-
-</section>
-
-
-<section class="team-section">
-
-    <div class="section-label">
-        12:00 PM
-    </div>
-
-    <h2>
-        LUNCH.
-    </h2>
-
-    <p class="section-description">
-        You could sit alone.
-        Or you could look around and ask someone:
-        "Hey, is this seat taken?"
-    </p>
-
-</section>
-
-
-<section class="transition">
-
-    <div class="section-label">
-        1:30 PM
-    </div>
-
-    <h2>
-        GET<br>
-        LOST.
-    </h2>
-
-    <p>
-        Baldwin Hall has entered the chat.
-    </p>
-
-</section>
-
-
-<section class="team-section">
-
-    <div class="section-label">
-        3:00 PM
-    </div>
-
-    <h2>
-        FREE<br>
-        TIME.
-    </h2>
-
-    <p class="section-description">
-        Library?
-        Club meeting?
-        Gym?
-        Target?
-        Nap?
-        Explore Cincinnati?
-    </p>
-
-</section>
-
-
-<section class="transition">
-
-    <h2>
-        AND THEN<br>
-        YOU DO IT<br>
-        <span>AGAIN.</span>
-    </h2>
-
-    <p>
-        Classes. Friends. Deadlines.
-        Clubs. Getting lost.
-        Finding your places.
-        Figuring things out.
-    </p>
-
-</section>
-
-
-<section class="team-section">
-
-    <div class="section-label">
-        THE PROBLEM
-    </div>
-
-    <h2>
-        THERE ISN'T<br>
-        REALLY A<br>
-        TUTORIAL.
-    </h2>
-
-    <p class="section-description">
-        So we decided to make one.
-    </p>
-
-    <a href="game.html" class="big-button">
-        WE MADE A GAME
-        <span>→</span>
-    </a>
-
-</section>
-
-
-</main>
-
-
-<footer>
-
-    <div>
-        BEARCAT: NO TUTORIAL
-    </div>
-
-    <div>
-        UC • CINCINNATI • 2026
-    </div>
-
-</footer>
+</div>
 
 
 </body>

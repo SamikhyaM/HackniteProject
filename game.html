@@ -1,134 +1,573 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>The Game | Bearcat: No Tutorial</title>
+    <title>Bearcat: No Tutorial — The Game</title>
 
     <link rel="stylesheet" href="css/style.css">
 
+    <style>
+
+        /* =========================
+           PAGE 3 — THE GAME
+        ========================= */
+
+        .game-page {
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+
+            position: relative;
+
+            background: #080808;
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        .top-nav {
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 82px;
+
+            padding: 0 4vw;
+
+            box-sizing: border-box;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            z-index: 20;
+        }
+
+
+        .uc-home {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            color: #ffffff;
+            text-decoration: none;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            letter-spacing: 0.08em;
+        }
+
+
+        .uc-mark {
+            width: 42px;
+            height: 42px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+
+            font-size: 12px;
+            font-weight: 900;
+        }
+
+
+        /* =========================
+           PREVIOUS / NEXT
+        ========================= */
+
+        .page-navigation {
+            display: flex;
+            gap: 8px;
+        }
+
+
+        .nav-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 11px 16px;
+
+            border: 1px solid #333333;
+
+            color: #ffffff;
+            text-decoration: none;
+
+            font-size: 11px;
+            font-weight: 800;
+
+            letter-spacing: 0.12em;
+
+            transition: all 0.25s ease;
+        }
+
+
+        .nav-button:hover {
+            border-color: #e00122;
+            background: #e00122;
+        }
+
+
+        /* =========================
+           GAME AREA
+        ========================= */
+
+        .game-content {
+
+            width: 100%;
+            height: 100%;
+
+            box-sizing: border-box;
+
+            padding: 105px 4vw 42px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        /* =========================
+           SMALL TITLE
+        ========================= */
+
+        .game-heading {
+
+            width: min(1100px, 100%);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 14px;
+        }
+
+
+        .game-label {
+
+            color: #e00122;
+
+            font-size: 11px;
+
+            font-weight: 900;
+
+            letter-spacing: 0.18em;
+        }
+
+
+        .game-status {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: #666666;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.12em;
+        }
+
+
+        .status-dot {
+
+            width: 7px;
+            height: 7px;
+
+            background: #e00122;
+
+            border-radius: 50%;
+        }
+
+
+        /* =========================
+           GAME WINDOW
+        ========================= */
+
+        .game-window {
+
+            width: min(1100px, 100%);
+
+            aspect-ratio: 16 / 9;
+
+            background: #000000;
+
+            border: 1px solid #303030;
+
+            position: relative;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 0 0 1px #111111,
+                0 25px 70px rgba(0, 0, 0, 0.55);
+        }
+
+
+        /*
+        =====================================
+        REN'PY WILL GO HERE
+        =====================================
+        */
+
+        #renpy-game {
+
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: #050505;
+        }
+
+
+        /* Temporary placeholder */
+
+        .game-placeholder {
+
+            text-align: center;
+
+            padding: 30px;
+        }
+
+
+        .game-placeholder .big-text {
+
+            font-size: clamp(32px, 5vw, 70px);
+
+            line-height: 0.9;
+
+            font-weight: 900;
+
+            letter-spacing: -0.06em;
+
+            text-transform: uppercase;
+        }
+
+
+        .game-placeholder .big-text span {
+
+            color: #e00122;
+        }
+
+
+        .game-placeholder p {
+
+            margin-top: 20px;
+
+            color: #777777;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.1em;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================
+           BOTTOM TEXT
+        ========================= */
+
+        .game-instruction {
+
+            margin-top: 13px;
+
+            width: min(1100px, 100%);
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #555555;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.12em;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================
+           PAGE NUMBER
+        ========================= */
+
+        .page-number {
+
+            position: absolute;
+
+            bottom: 22px;
+
+            left: 4vw;
+
+            color: #555555;
+
+            font-size: 10px;
+
+            font-weight: 800;
+
+            letter-spacing: 0.15em;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .game-page {
+
+                height: auto;
+
+                min-height: 100vh;
+
+                overflow: auto;
+            }
+
+
+            .game-content {
+
+                padding-top: 105px;
+
+                padding-bottom: 70px;
+            }
+
+
+            .game-heading {
+
+                margin-bottom: 10px;
+            }
+
+
+            .game-window {
+
+                aspect-ratio: 16 / 9;
+            }
+
+
+            .game-instruction {
+
+                flex-direction: column;
+
+                gap: 5px;
+            }
+
+
+            .uc-home span {
+
+                display: none;
+            }
+
+
+            .page-navigation {
+
+                gap: 4px;
+            }
+
+
+            .nav-button {
+
+                padding: 9px 11px;
+            }
+        }
+
+    </style>
 </head>
 
 
 <body>
 
-<nav class="navbar">
 
-    <a href="index.html" class="logo">
-        BEARCAT<span>:</span>NO TUTORIAL
-    </a>
-
-    <div class="nav-links">
-        <a href="index.html">TEAM</a>
-        <a href="first-year.html">FIRST YEAR</a>
-        <a href="game.html">THE GAME</a>
-        <a href="project.html">WHY?</a>
-    </div>
-
-</nav>
+<div class="game-page">
 
 
-<main>
+    <!-- =========================
+         TOP NAVIGATION
+    ========================= -->
+
+    <nav class="top-nav">
 
 
-<section class="hero">
+        <!-- UC / HOME -->
 
-    <div class="hero-small">
-        03 / THE GAME
-    </div>
+        <a href="index.html" class="uc-home">
 
-    <h1>
-        WE MADE<br>
-        A <span>GAME.</span>
-    </h1>
-
-    <p class="hero-description">
-        Your first week starts now.
-    </p>
-
-</section>
-
-
-<section class="team-section">
-
-    <div class="section-label">
-        BEARCAT: NO TUTORIAL
-    </div>
-
-    <h2>
-        CAN YOU<br>
-        SURVIVE<br>
-        YOUR FIRST<br>
-        WEEK?
-    </h2>
-
-    <p class="section-description">
-        An interactive freshman survival game where
-        your decisions shape what happens next.
-    </p>
-
-
-    <!-- GAME CONTAINER -->
-
-    <div class="game-container">
-
-        <div class="game-placeholder">
-
-            <div class="game-placeholder-title">
-                GAME LOADING...
+            <div class="uc-mark">
+                UC
             </div>
 
-            <p>
-                The Ren'Py browser version will appear here.
-            </p>
+            <span>
+                BEARCAT: NO TUTORIAL
+            </span>
+
+        </a>
+
+
+        <!-- PREVIOUS / NEXT -->
+
+        <div class="page-navigation">
+
+
+            <a href="first-year.html" class="nav-button">
+
+                <span>←</span>
+
+                <span>
+                    BACK
+                </span>
+
+            </a>
+
+
+            <a href="project.html" class="nav-button">
+
+                <span>
+                    NEXT
+                </span>
+
+                <span>→</span>
+
+            </a>
+
 
         </div>
 
+    </nav>
+
+
+
+    <!-- =========================
+         GAME CONTENT
+    ========================= -->
+
+    <main class="game-content">
+
+
+        <!-- GAME HEADER -->
+
+        <div class="game-heading">
+
+            <div class="game-label">
+                03 — THE GAME
+            </div>
+
+
+            <div class="game-status">
+
+                <div class="status-dot"></div>
+
+                PLAYABLE
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             REN'PY GAME WINDOW
+        ========================= -->
+
+        <div class="game-window">
+
+
+            <div id="renpy-game">
+
+
+                <!--
+                ==========================================
+                TEMPORARY PLACEHOLDER
+                ==========================================
+
+                When your Ren'Py web build is ready,
+                this entire div gets replaced by the
+                Ren'Py web player.
+
+                ==========================================
+                -->
+
+
+                <div class="game-placeholder">
+
+                    <div class="big-text">
+
+                        BEARCAT:
+                        <br>
+
+                        NO <span>TUTORIAL.</span>
+
+                    </div>
+
+
+                    <p>
+                        Your Ren'Py game will run here.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- GAME INSTRUCTIONS -->
+
+        <div class="game-instruction">
+
+            <span>
+                YOUR FIRST WEEK STARTS HERE.
+            </span>
+
+            <span>
+                MAKE YOUR CHOICES.
+            </span>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- PAGE NUMBER -->
+
+    <div class="page-number">
+        03 / 05
     </div>
 
 
-</section>
-
-
-<section class="transition">
-
-    <h2>
-        THERE'S<br>
-        NO<br>
-        <span>TUTORIAL.</span>
-    </h2>
-
-    <p>
-        So we built one.
-    </p>
-
-    <a href="project.html" class="big-button">
-        WHY WE MADE THIS
-        <span>→</span>
-    </a>
-
-</section>
-
-
-</main>
-
-
-<footer>
-
-    <div>
-        BEARCAT: NO TUTORIAL
-    </div>
-
-    <div>
-        UC • CINCINNATI • 2026
-    </div>
-
-</footer>
+</div>
 
 
 </body>

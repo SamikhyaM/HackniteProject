@@ -12,8 +12,6 @@
       --black: #080808;
       --white: #ffffff;
       --gray: #666666;
-      --light-gray: #f5f5f5;
-      --border: #dcdcdc;
     }
 
     * {
@@ -24,8 +22,7 @@
 
     body {
       width: 100%;
-      height: 100vh;
-      overflow: hidden;
+      min-height: 100vh;
       background: var(--white);
       color: var(--black);
       font-family: Arial, Helvetica, sans-serif;
@@ -39,13 +36,11 @@
     .page {
       position: relative;
       width: 100%;
-      height: 100vh;
+      min-height: 100vh;
       padding: 34px 55px;
       display: flex;
       flex-direction: column;
     }
-
-    /* NAVIGATION */
 
     .top-nav {
       display: flex;
@@ -71,8 +66,6 @@
       letter-spacing: 2.5px;
     }
 
-    /* GAME AREA */
-
     .main {
       flex: 1;
       display: flex;
@@ -96,38 +89,18 @@
       width: 100%;
       max-width: 1100px;
       height: min(65vh, 620px);
-      background: var(--black);
-      border: 1px solid var(--black);
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      background: #000000;
+      border: 1px solid #000000;
       overflow: hidden;
     }
 
-    .game-placeholder {
-      text-align: center;
-      color: white;
+    #renpy-game iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      background: #000000;
     }
-
-    .big-text {
-      font-size: clamp(35px, 5vw, 70px);
-      line-height: 0.9;
-      letter-spacing: -3px;
-      font-weight: 900;
-      margin-bottom: 25px;
-    }
-
-    .big-text span {
-      color: var(--red);
-    }
-
-    .game-placeholder p {
-      color: #aaaaaa;
-      font-size: 12px;
-      letter-spacing: 1px;
-    }
-
-    /* PAGE NUMBER */
 
     .page-number {
       position: absolute;
@@ -150,12 +123,19 @@
         padding: 25px;
       }
 
+      .main {
+        padding: 25px 0 70px;
+      }
+
       #renpy-game {
+        width: 100%;
         height: 60vh;
+        min-height: 400px;
       }
 
       .page-number {
         left: 25px;
+        bottom: 25px;
       }
     }
   </style>
@@ -164,8 +144,6 @@
 <body>
 
   <div class="page">
-
-    <!-- NAVIGATION -->
 
     <nav class="top-nav">
 
@@ -179,9 +157,6 @@
 
     </nav>
 
-
-    <!-- GAME -->
-
     <main class="main">
 
       <div class="label">
@@ -190,23 +165,15 @@
 
       <div id="renpy-game">
 
-        <div class="game-placeholder">
-
-          <div class="big-text">
-            BEARCAT:<br>
-            NO <span>TUTORIAL.</span>
-          </div>
-
-          <p>
-            YOUR REN'PY GAME WILL RUN HERE.
-          </p>
-
-        </div>
+        <iframe
+          src="campusQuest/index.html"
+          title="Bearcat: No Tutorial"
+          allowfullscreen>
+        </iframe>
 
       </div>
 
     </main>
-
 
     <div class="page-number">
       04 / 04
@@ -216,3 +183,4 @@
 
 </body>
 </html>
+

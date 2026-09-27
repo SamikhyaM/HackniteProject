@@ -1,581 +1,552 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bearcat: No Tutorial — Us</title>
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        /* PAGE 1 — TEAM */
-
-        .team-page {
-            height: 100vh;
-            min-height: 600px;
-            overflow: hidden;
-            position: relative;
-            background: #080808;
-            color: #ffffff;
-        }
-
-        /* ---------- NAV ---------- */
-
-        .top-nav {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 82px;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 0 4vw;
-            z-index: 10;
-        }
-
-        .uc-home {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            color: #ffffff;
-            text-decoration: none;
-
-            font-size: 14px;
-            font-weight: 800;
-            letter-spacing: 0.08em;
-        }
-
-        .uc-mark {
-            width: 42px;
-            height: 42px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border: 2px solid #ffffff;
-            border-radius: 50%;
-
-            font-size: 12px;
-            font-weight: 900;
-        }
-
-        .next-button {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            padding: 11px 18px;
-
-            border: 1px solid rgba(255,255,255,0.35);
-            color: #ffffff;
-            text-decoration: none;
-
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 0.12em;
-
-            transition: all 0.25s ease;
-        }
-
-        .next-button:hover {
-            background: #e00122;
-            border-color: #e00122;
-            transform: translateX(4px);
-        }
-
-
-        /* ---------- MAIN LAYOUT ---------- */
-
-        .team-content {
-            height: 100%;
-            width: 100%;
-
-            display: grid;
-            grid-template-columns: 36% 64%;
-            gap: 3vw;
-
-            padding: 120px 4vw 60px;
-            box-sizing: border-box;
-        }
-
-
-        /* ---------- LEFT SIDE ---------- */
-
-        .team-intro {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            padding-right: 3vw;
-        }
-
-        .eyebrow {
-            margin-bottom: 20px;
-
-            color: #e00122;
-
-            font-size: 12px;
-            font-weight: 900;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
-        }
-
-        .team-intro h1 {
-            margin: 0;
-
-            font-size: clamp(55px, 6vw, 105px);
-            line-height: 0.88;
-            letter-spacing: -0.06em;
-            font-weight: 900;
-            text-transform: uppercase;
-        }
-
-        .team-intro h1 span {
-            color: #e00122;
-        }
-
-        .intro-text {
-            max-width: 430px;
-
-            margin-top: 32px;
-
-            font-size: 17px;
-            line-height: 1.55;
-            color: #c8c8c8;
-        }
-
-        .intro-text strong {
-            color: #ffffff;
-        }
-
-        .intro-tagline {
-            margin-top: 28px;
-
-            padding-left: 15px;
-            border-left: 3px solid #e00122;
-
-            font-size: 14px;
-            line-height: 1.5;
-            color: #ffffff;
-        }
-
-
-        /* ---------- TEAM ---------- */
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-
-            align-items: center;
-        }
-
-        .member-card {
-            height: min(560px, 70vh);
-
-            position: relative;
-
-            border: 1px solid #292929;
-            background: #111111;
-
-            overflow: hidden;
-
-            transition:
-                transform 0.3s ease,
-                border-color 0.3s ease;
-        }
-
-        .member-card:hover {
-            transform: translateY(-8px);
-            border-color: #e00122;
-        }
-
-        /* Image placeholder */
-
-        .member-photo {
-            height: 68%;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: #1b1b1b;
-
-            position: relative;
-            overflow: hidden;
-        }
-
-        .member-photo img {
-            width: 100%;
-            height: 100%;
-
-            object-fit: cover;
-
-            display: block;
-        }
-
-        /* temporary photo placeholder */
-
-        .photo-placeholder {
-            font-size: 12px;
-            font-weight: 800;
-            letter-spacing: 0.15em;
-            color: #555555;
-            text-transform: uppercase;
-        }
-
-        .member-number {
-            position: absolute;
-            top: 14px;
-            left: 14px;
-
-            padding: 6px 8px;
-
-            background: #e00122;
-            color: #ffffff;
-
-            font-size: 10px;
-            font-weight: 900;
-            letter-spacing: 0.1em;
-        }
-
-        .member-info {
-            height: 32%;
-
-            padding: 18px;
-
-            box-sizing: border-box;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .member-name {
-            font-size: clamp(18px, 1.6vw, 26px);
-            line-height: 1;
-            font-weight: 900;
-            letter-spacing: -0.03em;
-            text-transform: uppercase;
-        }
-
-        .member-major {
-            margin-top: 7px;
-
-            font-size: 11px;
-            font-weight: 700;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
-
-            color: #e00122;
-        }
-
-        .member-fun {
-            margin-top: 14px;
-
-            font-size: 12px;
-            line-height: 1.4;
-            color: #a9a9a9;
-        }
-
-
-        /* ---------- PAGE NUMBER ---------- */
-
-        .page-number {
-            position: absolute;
-            bottom: 25px;
-            left: 4vw;
-
-            font-size: 10px;
-            font-weight: 800;
-            letter-spacing: 0.15em;
-
-            color: #555555;
-        }
-
-
-        /* ---------- RESPONSIVE ---------- */
-
-        @media (max-width: 900px) {
-
-            .team-content {
-                grid-template-columns: 1fr;
-                padding-top: 105px;
-                padding-bottom: 40px;
-            }
-
-            .team-intro {
-                padding-right: 0;
-                justify-content: flex-start;
-            }
-
-            .team-intro h1 {
-                font-size: 55px;
-            }
-
-            .intro-text {
-                margin-top: 18px;
-                font-size: 14px;
-            }
-
-            .intro-tagline {
-                display: none;
-            }
-
-            .team-grid {
-                align-items: stretch;
-            }
-
-            .member-card {
-                height: 48vh;
-            }
-
-            .member-photo {
-                height: 62%;
-            }
-
-            .member-info {
-                height: 38%;
-            }
-        }
-
-
-        @media (max-width: 600px) {
-
-            .team-page {
-                height: auto;
-                min-height: 100vh;
-                overflow: auto;
-            }
-
-            .team-content {
-                display: block;
-                padding-top: 100px;
-            }
-
-            .team-grid {
-                grid-template-columns: 1fr;
-                margin-top: 30px;
-            }
-
-            .member-card {
-                height: 450px;
-            }
-
-            .next-button {
-                padding: 9px 13px;
-            }
-
-            .uc-home span {
-                display: none;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bearcat: No Tutorial</title>
+
+  <style>
+    :root {
+      --red: #e00122;
+      --black: #080808;
+      --white: #ffffff;
+      --gray: #666666;
+      --light-gray: #f5f5f5;
+      --border: #dcdcdc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--black);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .team-page {
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* =========================
+       TOP NAV
+    ========================= */
+
+    .top-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 90px;
+      padding: 28px 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+    }
+
+    .uc-home {
+      display: flex;
+      align-items: center;
+    }
+
+    .uc-mark {
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      color: var(--red);
+    }
+
+    .next-button {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      border-bottom: 1px solid var(--black);
+      padding-bottom: 5px;
+      transition: 0.2s ease;
+    }
+
+    .next-button:hover {
+      color: var(--red);
+      border-color: var(--red);
+    }
+
+    /* =========================
+       MAIN CONTENT
+    ========================= */
+
+    .team-content {
+      position: absolute;
+      top: 90px;
+      left: 0;
+      right: 0;
+      bottom: 55px;
+
+      padding: 25px 42px 35px;
+
+      display: grid;
+      grid-template-columns: 42% 58%;
+      gap: 50px;
+      align-items: center;
+    }
+
+    /* =========================
+       PROJECT — LEFT
+    ========================= */
+
+    .project-section {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 30px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--red);
+      margin-bottom: 18px;
+    }
+
+    .project-title {
+      font-size: clamp(52px, 6vw, 92px);
+      line-height: 0.86;
+      letter-spacing: -5px;
+      font-weight: 900;
+      max-width: 560px;
+      margin-bottom: 28px;
+    }
+
+    .project-title span {
+      color: var(--red);
+    }
+
+    .project-copy {
+      max-width: 520px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--gray);
+    }
+
+    .project-copy p + p {
+      margin-top: 12px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 28px;
+    }
+
+    .project-tag {
+      border: 1px solid var(--border);
+      background: var(--light-gray);
+      padding: 8px 11px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+    }
+
+    .project-line {
+      margin-top: 24px;
+      padding-left: 14px;
+      border-left: 3px solid var(--red);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.4;
+      max-width: 480px;
+    }
+
+    /* =========================
+       TEAM — RIGHT
+    ========================= */
+
+    .team-section {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .team-section .section-label {
+      margin-bottom: 12px;
+    }
+
+    .team-title {
+      font-size: clamp(55px, 7vw, 100px);
+      line-height: 0.8;
+      letter-spacing: -6px;
+      font-weight: 900;
+      margin-bottom: 30px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      width: 100%;
+    }
+
+    .member-card {
+      position: relative;
+      height: min(48vh, 430px);
+      min-height: 300px;
+      border: 1px solid var(--border);
+      background: var(--light-gray);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .member-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--black);
+    }
+
+    .member-photo {
+      position: absolute;
+      inset: 0;
+      background: #eeeeee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .member-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .photo-placeholder {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #999;
+    }
+
+    .member-info {
+      position: relative;
+      z-index: 2;
+      padding: 18px;
+      background: linear-gradient(
+        to top,
+        rgba(255,255,255,0.98) 0%,
+        rgba(255,255,255,0.94) 75%,
+        rgba(255,255,255,0) 100%
+      );
+      padding-top: 55px;
+    }
+
+    .member-name {
+      font-size: 20px;
+      font-weight: 900;
+      letter-spacing: -0.7px;
+    }
+
+    .member-major {
+      margin-top: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+
+    .member-fun {
+      margin-top: 10px;
+      font-size: 11px;
+      line-height: 1.4;
+      color: var(--gray);
+      max-width: 220px;
+    }
+
+    /* =========================
+       PAGE NUMBER
+    ========================= */
+
+    .page-number {
+      position: absolute;
+      bottom: 25px;
+      left: 42px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 900px) {
+
+      html,
+      body {
+        overflow: auto;
+      }
+
+      .team-page {
+        min-height: 100vh;
+        height: auto;
+        overflow: visible;
+      }
+
+      .top-nav {
+        position: relative;
+        height: 75px;
+        padding: 22px;
+      }
+
+      .team-content {
+        position: relative;
+        top: auto;
+        bottom: auto;
+        padding: 30px 22px 90px;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+      }
+
+      .project-section {
+        height: auto;
+        padding-right: 0;
+      }
+
+      .project-title {
+        font-size: 58px;
+        letter-spacing: -4px;
+      }
+
+      .team-section {
+        height: auto;
+      }
+
+      .team-title {
+        font-size: 65px;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .member-card {
+        height: 430px;
+      }
+
+      .page-number {
+        position: fixed;
+        bottom: 20px;
+        left: 22px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-<div class="team-page">
+  <main class="team-page">
 
-    <!-- TOP NAVIGATION -->
+    <!-- TOP NAV -->
     <nav class="top-nav">
 
-        <!-- Replace the UC text circle with the official/custom logo later -->
-        <a href="index.html" class="uc-home">
-            <div class="uc-mark">UC</div>
-            <span>BEARCAT: NO TUTORIAL</span>
-        </a>
+      <!-- ONLY UC -->
+      <a href="index.html" class="uc-home">
+        <div class="uc-mark">UC</div>
+      </a>
 
-        <a href="first-year.html" class="next-button">
-            NEXT
-            <span>→</span>
-        </a>
+      <a href="first-year.html" class="next-button">
+        NEXT →
+      </a>
 
     </nav>
 
 
     <!-- MAIN CONTENT -->
-    <main class="team-content">
+    <section class="team-content">
 
 
-        <!-- LEFT: ABOUT US -->
-        <section class="team-intro">
+      <!-- LEFT: PROJECT -->
+      <div class="project-section">
 
-            <div class="eyebrow">
-                01 — THE PEOPLE
+        <div class="section-label">
+          01 — THE PROJECT
+        </div>
+
+        <h1 class="project-title">
+          BEARCAT:<br>
+          NO <span>TUTORIAL.</span>
+        </h1>
+
+        <div class="project-copy">
+
+          <p>
+            Starting college feels a lot like playing a game
+            without instructions.
+          </p>
+
+          <p>
+            You're suddenly expected to figure out classes,
+            buildings, food, money, people, clubs, schedules,
+            and a hundred little things nobody really teaches you.
+          </p>
+
+          <p>
+            So we turned that experience into an interactive
+            freshman survival game.
+          </p>
+
+        </div>
+
+        <div class="project-tags">
+          <div class="project-tag">AI-POWERED</div>
+          <div class="project-tag">REN'PY</div>
+          <div class="project-tag">PYTHON</div>
+          <div class="project-tag">GEMINI</div>
+        </div>
+
+        <div class="project-line">
+          Make choices. Get lost. Meet people. Make mistakes.
+          Somehow make it to day two.
+        </div>
+
+      </div>
+
+
+      <!-- RIGHT: TEAM -->
+      <div class="team-section">
+
+        <div class="section-label">
+          02 — THE PEOPLE
+        </div>
+
+        <h2 class="team-title">
+          US.
+        </h2>
+
+        <div class="team-grid">
+
+
+          <!-- MEMBER 1 -->
+          <article class="member-card">
+
+            <div class="member-photo">
+              <!-- Replace with your photo -->
+              <div class="photo-placeholder">
+                PHOTO
+              </div>
             </div>
 
-            <h1>
-                ABOUT<br>
-                <span>US.</span>
-            </h1>
+            <div class="member-info">
 
-            <p class="intro-text">
-                We're first-year Bearcats.
-                We're still figuring out where we're going,
-                what we're doing, and why
-                <strong>Baldwin Hall has approximately 900 hallways.</strong>
-            </p>
+              <div class="member-name">
+                Riddhi Kumar
+              </div>
 
-            <div class="intro-tagline">
-                So we decided to make a tutorial.
-                <br>
-                <strong>Except there isn't one.</strong>
+              <div class="member-major">
+                Computer Science
+              </div>
+
+              <div class="member-fun">
+                Can somehow get lost while actively using Google Maps.
+              </div>
+
             </div>
 
-        </section>
+          </article>
 
 
-        <!-- RIGHT: TEAM CARDS -->
-        <section class="team-grid">
+          <!-- MEMBER 2 -->
+          <article class="member-card">
+
+            <div class="member-photo">
+              <!-- Replace with their photo -->
+              <div class="photo-placeholder">
+                PHOTO
+              </div>
+            </div>
+
+            <div class="member-info">
+
+              <div class="member-name">
+                NAME
+              </div>
+
+              <div class="member-major">
+                MAJOR
+              </div>
+
+              <div class="member-fun">
+                Somehow always knows where the food is.
+              </div>
+
+            </div>
+
+          </article>
 
 
-            <!-- PERSON 1 -->
-            <article class="member-card">
+          <!-- MEMBER 3 -->
+          <article class="member-card">
 
-                <div class="member-photo">
+            <div class="member-photo">
+              <!-- Replace with their photo -->
+              <div class="photo-placeholder">
+                PHOTO
+              </div>
+            </div>
 
-                    <!--
-                    Replace this with your actual image:
+            <div class="member-info">
 
-                    <img src="images/riddhi.jpg" alt="Riddhi Kumar">
-                    -->
+              <div class="member-name">
+                NAME
+              </div>
 
-                    <span class="photo-placeholder">
-                        YOUR PHOTO
-                    </span>
+              <div class="member-major">
+                MAJOR
+              </div>
 
-                    <div class="member-number">
-                        01
-                    </div>
+              <div class="member-fun">
+                Will absolutely attend an event if there's free food.
+              </div>
 
-                </div>
+            </div>
 
-                <div class="member-info">
-
-                    <div>
-                        <div class="member-name">
-                            Riddhi Kumar
-                        </div>
-
-                        <div class="member-major">
-                            Computer Science
-                        </div>
-                    </div>
-
-                    <div class="member-fun">
-                        Can somehow get lost while
-                        actively using Google Maps.
-                    </div>
-
-                </div>
-
-            </article>
+          </article>
 
 
-            <!-- PERSON 2 -->
-            <article class="member-card">
+        </div>
 
-                <div class="member-photo">
+      </div>
 
-                    <!--
-                    Replace with:
-
-                    <img src="images/name.jpg" alt="Name">
-                    -->
-
-                    <span class="photo-placeholder">
-                        YOUR PHOTO
-                    </span>
-
-                    <div class="member-number">
-                        02
-                    </div>
-
-                </div>
-
-                <div class="member-info">
-
-                    <div>
-                        <div class="member-name">
-                            NAME
-                        </div>
-
-                        <div class="member-major">
-                            MAJOR
-                        </div>
-                    </div>
-
-                    <div class="member-fun">
-                        Insert highly specific
-                        freshman personality trait here.
-                    </div>
-
-                </div>
-
-            </article>
+    </section>
 
 
-            <!-- PERSON 3 -->
-            <article class="member-card">
-
-                <div class="member-photo">
-
-                    <!--
-                    Replace with:
-
-                    <img src="images/name.jpg" alt="Name">
-                    -->
-
-                    <span class="photo-placeholder">
-                        YOUR PHOTO
-                    </span>
-
-                    <div class="member-number">
-                        03
-                    </div>
-
-                </div>
-
-                <div class="member-info">
-
-                    <div>
-                        <div class="member-name">
-                            NAME
-                        </div>
-
-                        <div class="member-major">
-                            MAJOR
-                        </div>
-                    </div>
-
-                    <div class="member-fun">
-                        Insert highly specific
-                        freshman personality trait here.
-                    </div>
-
-                </div>
-
-            </article>
-
-
-        </section>
-
-    </main>
-
-
-    <!-- PAGE INDICATOR -->
+    <!-- PAGE NUMBER -->
     <div class="page-number">
-        01 / 05
+      01 / 04
     </div>
 
-</div>
+  </main>
 
 </body>
 </html>
